@@ -2,9 +2,9 @@
 
 namespace simpleCode
 { /* Написать метод для поиска индекса элемента массива
-     (тип элеметов в массиве int), метод должен вернуть 
+     (тип элеметов в массиве int), метод должен вернуть
 	 индекс первого найденного элемента(если он будет найден).
-	 Предусмотреть, если не будет найдено число. 
+	 Предусмотреть, если не будет найдено число.
 	 Написать упрощенный метод - IndexOf*/
 	internal class Program
 	{
@@ -14,8 +14,8 @@ namespace simpleCode
 			{
 				if (arr[i] == value)
 				{
-					return i;
 					Console.WriteLine("элемент массива " + i);
+					return i;
 				}
 			}
 			return -1;
@@ -34,11 +34,18 @@ namespace simpleCode
 		static void Main(string[] args)
 		{
 
-			int[] array = GetRandomArray(10, -10, 10);
+			int[] array = GetRandomArray(10, -1, 10);
 
 			int result = IndexOf(array, 3);
-			Console.WriteLine(result);
-			Console.WriteLine("IndexOf " + Array.IndexOf(array, 3));
+			if (result != -1)
+			{
+				Console.WriteLine(result);
+			} else
+			{
+                Console.WriteLine("Mo such element in the array");
+            }
+
+			//Console.WriteLine("IndexOf " + Array.IndexOf(array, 3));
 
 		}
 	}
